@@ -1,4 +1,4 @@
-id	INT (PK)	Unique identifier
+id	INT (PK)	Unique identifier for each word
 puzzle_id	INT (FK)	References generated_puzzles.id
 word_id	INT (FK)	References crossword_words.id
 position_x	INT	X coordinate in the grid

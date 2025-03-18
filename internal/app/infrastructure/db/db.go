@@ -1,25 +1,16 @@
-package main
+package db
 
 import (
 	"log"
-	"time"
 
 	"github.com/jmoiron/sqlx"
+	"github.com/spf13/viper"
 	_ "github.com/mattn/go-sqlite3"
 )
 
-// DB instance
 var db *sqlx.DB
 
-type User struct {
-	ID        int       `db:"id"`
-	Username  string    `db:"username"`
-	Email     string    `db:"email"`
-	Password  string    `db:"password"`
-	CreatedAt time.Time `db:"created_at"`
-}
-
-func initDB() {
+func InitDB() {
 	var err error
 	db, err = sqlx.Connect(viper.GetString("database.type"), viper.GetString("database.path"))
 	if err != nil {
@@ -32,6 +23,20 @@ func initDB() {
 		email TEXT UNIQUE,
 		password TEXT,
 		created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+	);
+	CREATE TABLE IF NOT EXISTS crossword_puzzles (
+		id INTEGER PRIMARY KEY AUTOINCREMENT,
+		user_id INTEGER,
+		width INTEGER,
+		height INTEGER,
+		complexity TEXT,
+		words TEXT,
+		created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+		FOREIGN KEY(user_id) REFERENCES users(id)
 	);`
 	db.MustExec(schema)
+}
+
+func GetDB() *sqlx.DB {
+	return db
 }

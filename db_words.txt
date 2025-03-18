@@ -3,6 +3,6 @@ word	TEXT	The crossword word (e.g., "CAT")
 clue	TEXT	The question/clue for the word
 difficulty	TEXT	Difficulty level (Easy, Medium, Hard)
 theme	TEXT	Category of the word (e.g., "Animals")
-language	TEXT	Language code (e.g., "en" for English)
+language	TEXT	Language code (e.g., "en" for English")
 added_by	INT (FK)	(Optional) User ID if words can be submitted by users
 created_at	TIMESTAMP	Date added
