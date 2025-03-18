@@ -1,0 +1,5 @@
+id	INT (PK)	Unique user ID
+username	TEXT	Unique username
+email	TEXT	Unique email
+password	TEXT (hashed)	Hashed password
+created_at	TIMESTAMP	Date of registration

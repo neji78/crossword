@@ -1,0 +1,6 @@
+id	INT (PK)	Unique identifier
+puzzle_id	INT (FK)	References generated_puzzles.id
+word_id	INT (FK)	References crossword_words.id
+position_x	INT	X coordinate in the grid
+position_y	INT	Y coordinate in the grid
+direction	TEXT	"Across" or "Down"

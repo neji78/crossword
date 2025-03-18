@@ -1,0 +1,7 @@
+id	INT (PK)	Unique puzzle ID
+difficulty	TEXT	Difficulty level of the puzzle
+width	INT	Grid width
+height	INT	Grid height
+num_words	INT	Number of words used
+theme	TEXT	Theme category
+generated_at	TIMESTAMP	Time of generation
